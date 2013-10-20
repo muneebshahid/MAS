@@ -2,15 +2,21 @@ __author__ = 'muneeb'
 
 
 class Node(object):
-    x_coordinate = None
-    y_coordinate = None
-    is_explored = None
-    adjacent_nodes = None
+    is_explored = False
+    __adjacent_nodes = None
+    __key = None
+    __data = None
 
-    def __init__(self, x_coordinate, y_coordinate, _is_explored=False):
-        self.x_coordinate = x_coordinate
-        self.y_coordinate = y_coordinate
-        self.is_explored = _is_explored
+    def __init__(self, key, data,adjacent_nodes):
+        self.__key = key
+        self.__data = data
+        self.__adjacent_nodes = adjacent_nodes
 
-    def equals(self, node):
-        return self.x_coordinate == node.x_coordinate and self.y_coordinate == node.y_coordinate
+    def get_node_key(self):
+        return self.__key
+
+    def get_adjacent_nodes(self):
+        return self.__adjacent_nodes
+
+    def get_data(self):
+        return self.__data

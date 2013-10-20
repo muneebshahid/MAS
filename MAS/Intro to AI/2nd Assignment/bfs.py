@@ -1,39 +1,22 @@
 __author__ = 'muneeb'
-from node import Node
 from world import World
 
 
 class BFS():
     __fringe = []
     __world = None
-    __start = None
 
-    def __init__(self, world, start):
+    def __init__(self, world):
         self.__world = world
         """:type : World"""
-        self.__start = start
-        """:type : Node"""
-        self.__fringe.append(start)
+        self.__fringe.append(self.__world.get_start())
 
     def search(self):
-        self.__search(self.__world, self.__start)
-
-    def __put_adjacent_nodes_on_fringe(self, node):
-        adjacent_nodes = self.__world.get_adjacent_nodes(node)
-        for adjacent_node in adjacent_nodes:
-            if not self.__world.__explored.has_key(adjacent_node):
-                self.__fringe.append(adjacent_node)
-
-    def __search(self):
         while len(self.__fringe) > 0:
-            node = self.__fringe.pop()
-            if self.__world.is_explored(node):
-                return
-            else:
-                node.is_explored = True
-            self.__put_adjacent_nodes_on_fringe(node)
+            node_key = self.__fringe.pop(0)
 
-
-
-
-
+            for adjacent_node_key in self.__world.get_adjacent_nodes(node_key):
+                if self.__world.get_is_explored(adjacent_node_key):
+                    continue
+                self.__world.set_is_explored(node_key, True)
+                self.__fringe.append(node_key)

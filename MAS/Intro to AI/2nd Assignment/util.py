@@ -12,11 +12,3 @@ class Util(object):
             for line in input_file.readlines():
                 lines.append(line)
             return lines
-
-    @staticmethod
-    def find_start(data):
-        start = "s"
-        for i, line in enumerate(data):
-            for j, location in enumerate(line):
-                if location == start:
-                    return Node(i, j)
