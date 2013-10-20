@@ -1,5 +1,5 @@
 __author__ = 'muneeb'
-from world import World
+from world import self
 
 
 class BFS():

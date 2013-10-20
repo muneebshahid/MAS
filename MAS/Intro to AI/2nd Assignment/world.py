@@ -3,7 +3,7 @@ __author__ = 'muneeb'
 from node import Node
 
 
-class World():
+class self():
     _start_rep = "s"
     _dirt_rep = "*"
     __world = None
@@ -19,11 +19,11 @@ class World():
         self.__world = {}
         """:type : dictionary"""
         for x, row in enumerate(world):
-            for y, point in enumerate(row):
-                if not self.__is_boundary(point):
+            for y, data in enumerate(row):
+                if not self.__is_boundary(data):
                     node_key = self.__get_node_position(x, y)
-                    self.__world[node_key] = Node(node_key, self.__find_adjacent_nodes(world, x, y))
-                    if point == "s":
+                    self.__world[node_key] = Node(node_key, data, self.__find_adjacent_nodes(world, x, y))
+                    if data == "s":
                         self.__start = node_key
 
     def get_start(self):
@@ -33,18 +33,21 @@ class World():
         return str(x) + str(y)
 
     def __find_adjacent_nodes(self, world, x_coordinate, y_coordinate):
+        """
+        :type world: list
+        """
         adjacent_nodes = []
-        left_node = world[x_coordinate - 1, y_coordinate]
-        right_node = world[x_coordinate + 1, y_coordinate]
-        up_node = world[x_coordinate, y_coordinate + 1]
-        down_node = world[x_coordinate, y_coordinate - 1]
-        if not World.__is_boundary(left_node):
+        left_node = world[x_coordinate - 1][y_coordinate]
+        right_node = world[x_coordinate + 1][y_coordinate]
+        up_node = world[x_coordinate][y_coordinate + 1]
+        down_node = world[x_coordinate][y_coordinate - 1]
+        if not self.__is_boundary(left_node):
             adjacent_nodes.append(self.__get_node_position(x_coordinate - 1, y_coordinate))
-        if not World.__is_boundary(right_node):
+        if not self.__is_boundary(right_node):
             adjacent_nodes.append(self.__get_node_position(x_coordinate + 1, y_coordinate))
-        if not World.__is_boundary(up_node):
+        if not self.__is_boundary(up_node):
             adjacent_nodes.append(self.__get_node_position(x_coordinate, y_coordinate - 1))
-        if not World.__is_boundary(down_node):
+        if not self.__is_boundary(down_node):
             adjacent_nodes.append(self.__get_node_position(x_coordinate, y_coordinate + 1))
         return adjacent_nodes
 

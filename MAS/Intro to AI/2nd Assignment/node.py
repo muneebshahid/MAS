@@ -7,7 +7,7 @@ class Node(object):
     __key = None
     __data = None
 
-    def __init__(self, key, data,adjacent_nodes):
+    def __init__(self, key, data, adjacent_nodes):
         self.__key = key
         self.__data = data
         self.__adjacent_nodes = adjacent_nodes
