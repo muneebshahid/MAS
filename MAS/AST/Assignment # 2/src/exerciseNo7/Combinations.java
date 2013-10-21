@@ -1,7 +1,7 @@
 /*
 *	@author Muneeb Shahid
 */
-package exerciseNo4;
+package exerciseNo7;
 
 
 public class Combinations

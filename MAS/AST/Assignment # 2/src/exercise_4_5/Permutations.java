@@ -1,7 +1,7 @@
 /*
  *	@author Muneeb Shahid
  */
-package exercise;
+package exercise_4_5;
 
 import java.util.ArrayList;
 
@@ -20,7 +20,6 @@ public class Permutations
 	private static java.util.List<String> generate(String prefix, String str,
 			int choose)
 	{
-
 		int length = str.length();
 		String currentPermutation;
 		java.util.List<String> permutations = new ArrayList<String>();
@@ -55,7 +54,11 @@ public class Permutations
 		}
 		return permutations;
 	}
-	
+	/**
+	 * Generates all permutations. Starting from choose=total_elements to choose=0 
+	 * @param str
+	 * @return
+	 */
 	public static java.util.List<String> generateAllPermutations(String str)
 	{
 		java.util.List<String> permutations = new java.util.ArrayList<String>();

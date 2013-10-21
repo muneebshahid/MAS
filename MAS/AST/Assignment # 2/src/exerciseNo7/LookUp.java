@@ -1,12 +1,15 @@
 /*
  *	@author Muneeb Shahid
  */
-package exerciseNo4;
+package exerciseNo7;
 
 import java.util.HashMap;
 
 public class LookUp
 {
+	/**
+	 * Look up table to match combinations key against participant name
+	 */
 	private final static java.util.HashMap<String, String> lookUp = new HashMap<String, String>();
 	static
 	{

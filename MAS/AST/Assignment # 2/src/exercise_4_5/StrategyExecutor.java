@@ -1,7 +1,7 @@
 /*
  *	@author Muneeb Shahid
  */
-package exercise;
+package exercise_4_5;
 
 public class StrategyExecutor
 {
@@ -9,6 +9,12 @@ public class StrategyExecutor
 	private java.util.List<String> permutations;
 	private java.util.HashMap<String, VacumCleaningRobot> robots;
 
+	
+	/**
+	 * @param cleanArea The initial clean area. 
+	 * @param permutations List of all permutations that will be executed.
+	 * @param robots List of the robots
+	 */
 	public StrategyExecutor(int cleanArea, java.util.List<String> permutations,
 			java.util.HashMap<String, VacumCleaningRobot> robots)
 	{
@@ -17,36 +23,37 @@ public class StrategyExecutor
 		this.robots = robots;
 	}
 
+	/**
+	 *  Executes all permutations
+	 */
 	public void Execute()
 	{
 		java.util.HashMap<String, Double> results = new java.util.HashMap<String, Double>();
 		for (String permutation : permutations)
 		{
-			double currentCleanArea = cleanArea;
-			for (char robotName : permutation.toCharArray())
-			{
-				currentCleanArea = robots.get(robotName + "").clean(
-						currentCleanArea);
-			}
+			//Since one permutations is to not use any robot equivalent of empty string
+			//so replacing it with the string "No Robot"
 			if (permutation == "")
 			{
 				permutation = "No Robot ";
+				continue;
 			}
+			
+			double currentCleanArea = cleanArea;
+			for (char robotName : permutation.toCharArray())
+			{				
+				currentCleanArea = robots.get(robotName + "").clean(
+						currentCleanArea);
+			}
+			//Store all results
 			results.put(permutation, currentCleanArea);
 		}
+		
 		String bestPermutation = "";
-		String[] strategies = new String[2];
 		double percentCleanArea = 0;
+		//finally store the best permutation by checking area cleaned 
 		for (String result : results.keySet())
 		{
-			if (strategies[0] == null && result != "No Robot")
-			{
-				strategies[0] = result;
-			}
-			else if (strategies[1] == null)
-			{
-				strategies[1] = result;
-			}
 			if (percentCleanArea < results.get(result))
 			{
 				bestPermutation = result;
@@ -57,53 +64,5 @@ public class StrategyExecutor
 		}
 		System.out.println("Best strategy is to use robots: \"" + bestPermutation
 				+ "\" with " + percentCleanArea + "% clean area.");
-		//this.findBestStrategyForAGivenScenario(strategies);
-	}
-
-	private void findBestStrategyForAGivenScenario(String[] strategies)
-	{
-		System.out.println("Ref Exercise task 5.3");
-		System.out.println("Selecting two strategies");
-		System.out.println("Strategy " + strategies[0] + " and "
-				+ strategies[1]);
-		double previousCleanArea = 0D;
-		String[] result = new String[2];
-		for (int i = 0; i <= 100; i++)
-		{
-			for (String strategy : strategies)
-			{
-				double currentCleanArea = i;
-				for (char robotName : strategy.toCharArray())
-				{
-					currentCleanArea = robots.get(robotName + "").clean(
-							currentCleanArea);
-				}
-				if (previousCleanArea == 0D)
-				{
-					previousCleanArea = currentCleanArea;
-				}
-				else
-				{
-					if (previousCleanArea > currentCleanArea)
-					{
-						result[0] = i + "";
-					}
-					else if (currentCleanArea > previousCleanArea)
-					{
-						result[1] = i + "";
-					}
-				}
-			}
-		}
-		if (result[0] != null)
-		{
-			System.out.println("Strategy " + strategies[0]
-					+ " is better when initial clean area is " + result[0]);
-		}
-		if (result[1] != null)
-		{
-			System.out.println("Strategy " + strategies[1]
-					+ " is better when initial clean area is " + result[1]);
-		}
 	}
 }

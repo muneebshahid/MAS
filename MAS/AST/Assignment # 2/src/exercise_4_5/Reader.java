@@ -2,12 +2,19 @@
  *	@author Muneeb Shahid
  */
 
-package exercise;
+package exercise_4_5;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
+
+/**
+ *
+ * //A helper class for taking user input
+ * @author muneeb
+ *
+ */
 public class Reader
 {
 	private InputStreamReader inputStreamReader;
@@ -18,6 +25,11 @@ public class Reader
 	    bufferedReader = new BufferedReader(inputStreamReader);
 	}
 
+	/**
+	 * Reads Integer and throws exception if input was not integer
+	 * @return
+	 * @throws Exception
+	 */	
 	public int readInt() throws Exception
 	{
 		try
@@ -35,6 +47,12 @@ public class Reader
 		}		
 	}
 
+	
+	/**
+	 * Reads string user input and throws exception if unable to read
+	 * @return
+	 * @throws Exception
+	 */
 	public String readString() throws Exception
 	{
 		try
@@ -43,7 +61,7 @@ public class Reader
 		}
 		catch(IOException iE)
 		{
-			throw new Exception("Unable to read Integer");
+			throw new Exception("Unable to read user input");
 		}		
 	}
 }

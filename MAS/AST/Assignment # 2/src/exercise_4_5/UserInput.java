@@ -1,13 +1,16 @@
 /*
  *	@author Muneeb Shahid
  */
-package exercise;
+package exercise_4_5;
 
 import java.util.HashMap;
 
 public class UserInput
 {
-
+	/**
+	 * Get initial clean area form user
+	 * @return
+	 */
 	public static int getInitialCleanArea()
 	{
 		Reader reader = new Reader();
@@ -18,6 +21,7 @@ public class UserInput
 			{
 				System.out.println("Enter initial clean area in percentage\n");
 				cleanArea = reader.readInt();
+				//Percentage must be between 0 or 100
 				if (cleanArea > 100 || cleanArea < 0)
 				{
 					System.out
@@ -34,6 +38,10 @@ public class UserInput
 		return cleanArea;
 	}
 
+	/**
+	 * Takes 5 performance functions for robots, one for each.
+	 * @return
+	 */
 	public static java.util.HashMap<String, VacumCleaningRobot> loadRobots()
 	{
 		Reader reader = new Reader();
@@ -72,6 +80,12 @@ public class UserInput
 				{
 					System.out.println("Unable to read data. Please retry");
 				}
+			}
+			if (areaClean < 0 || areaDirty < 0)
+			{
+				System.out
+				.println("Area cleaned or made dirty by robot cannot be less than zero. \nPlease retry");
+				continue;
 			}
 			if (areaClean + areaDirty > 100)
 			{
