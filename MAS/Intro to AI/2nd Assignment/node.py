@@ -6,6 +6,11 @@ class Node(object):
     __y_coordinate = None
     __key = None
     __data = None
+    __adjacent_nodes = None
+    __is_explored = False
+
+    def __init__(self, adjacent_nodes):
+        self.__adjacent_nodes = adjacent_nodes
 
     def __init__(self, x, y, data):
         self.__x_coordinate = x
@@ -24,3 +29,12 @@ class Node(object):
 
     def get_data(self):
         return self.__data
+
+    def set_is_explored(self, explored):
+        self.__is_explored = explored
+
+    def get_is_explored(self):
+        return self.__is_explored
+
+    def get_adjacent_nodes(self):
+        return self.__adjacent_nodes

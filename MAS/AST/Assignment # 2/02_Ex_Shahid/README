@@ -1,9 +1,0 @@
-Each solutions has its own Main.java. You just need to compile and run it.
->javac Main.java
->java Main
-
-02_Ex_0405_Shahid contains solution for both question 4 and 5.
-02_Ex_06_Shahid contains solution for question 6. (Incomplete)
-02_Ex_07_Shahid contains solution for question 7.
-
-

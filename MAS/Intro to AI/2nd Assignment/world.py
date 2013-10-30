@@ -14,6 +14,7 @@ class World():
     __explored = None
     __fringe = None
     __start = None
+    __goal = None
 
 
     def dirt(self):
@@ -21,6 +22,9 @@ class World():
 
     def __is_boundary(self, char):
         return char == self.__horizontal_boundary or char == self.__vertical_boundary or char == self.__new_line
+
+    def __init__(self, world, node):
+        self.__world = world
 
     def __init__(self, world, path):
         self.__world = world
@@ -86,11 +90,11 @@ class World():
         Util.write_to_file(self.__path, data, append)
 
     def update_world(self, node):
-        return'''
         self.__world[node.x_coordinate()][node.y_coordinate()] = "0"
         data = ""
         for row in self.__world:
             for char in row:
                 data += char
         self.__write_to_file(data + self.__new_line )
-            '''
+
+
