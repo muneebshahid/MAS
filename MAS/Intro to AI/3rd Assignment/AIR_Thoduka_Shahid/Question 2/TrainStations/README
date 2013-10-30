@@ -1,0 +1,5 @@
+Open terminal in the current directory
+run "javac *.java"
+run "java UI"
+
+The main class is UI

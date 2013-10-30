@@ -1,0 +1,6 @@
+What is Homogenrous Transform?
+Homogenous transform is a 4x4 matrix, it combines both the rotation and translation in to a singal matrix.
+What is a transofrm operator?
+Operates on a vector and changes it to a new vector, both by rotation and translation.
+What are euler angles?
+If rotations are performed about a moving axis then the angles by which the rotations are done are called euler angles.

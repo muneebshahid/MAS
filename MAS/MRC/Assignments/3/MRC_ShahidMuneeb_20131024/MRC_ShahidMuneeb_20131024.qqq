@@ -1,0 +1,6 @@
+Why is matrix composition needed?
+Matrix decomposition reduces the dimensions of the matrix, thus decreasing computations.
+How does LU decomposition work?
+It decomposes matrix in two matrices U orthogonal and L lower triangular.
+What is significance of SVD?
+SVD decomposes singular and non square matrices.

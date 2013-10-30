@@ -1,0 +1,51 @@
+Assignment 1
+
+Modules:
+numpy
+matplotlib.pyplot
+sympy.physics.mechanics
+
+Functions:
+numpy:
+arange, apply_along_axis, array, asarray, diag, dstack, flat, flatten, hstack, linspace, load, ones, ravel, save, shape, split, squeeze, vstack, zeros
+
+matplotlib.pyplot:
+cla, clf, figure, gca, legend, plot, show, subplot, title, xlabel, xlim, ylabel, ylim
+
+sympy.physics.mechanics.ReferenceFrame:
+dcm, orient, orientnew, x, y, z
+
+Assignment 2:
+Modules:
+glob
+matplotlib
+numpy
+numpy.linalg
+PIL.Image
+scipy.misc
+ 
+Functions:
+glob:
+glob, iglob
+
+matplotlib:
+imshow
+
+numpy:
+abs, argsort, cov, dot, empty_like, fliplr, fmax, fmin, loadtxt, min, max, nanmin, nanmax, sort, sum, sqrt, where
+
+numpy.linalg:
+eig, eigh, eigvals, matrix_rank, norm
+
+PIL.Image:
+open
+
+scipy.misc:
+imresize, imfilter
+
+
+Modules:
+numpy.linalg
+Functions:
+numpy.linalg:
+qr, svd
